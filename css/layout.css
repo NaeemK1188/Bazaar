@@ -32,6 +32,8 @@
 
 /* or when screen is desktop */
 @media screen and (width >= 768px) {
+  /* we only changed the width when the screen is bigger, but the container will stay
+  in the middle because margin in auto on the to top ruleset */
   .container {
     max-width: 1500px;
   }

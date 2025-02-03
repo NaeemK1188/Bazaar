@@ -23,19 +23,23 @@ header {
 
 .header-h4 {
   display: none;
-  color: white;
-  font-family: 'Proza Libre', serif;
-  font-weight: normal;
-  line-height: 80px;
-  margin-left: 200px;
 }
 
-.header-img {
+/* we don't have a ruleset for the cart icon on the header in small screen */
+
+/* .header-img {
   display: block;
-  margin-top: 35px;
-  margin-right: 75px;
-  margin-bottom: 30px;
-  margin-left: 180px;
+
+  removing margin because we have applied the flex properties in align-center ruleset
+
+
+} */
+
+/* applying on properties on children like the image */
+.align-center-small {
+  /* justify-content center didn't work although it inherits from parent ? */
+  text-align: end;
+  align-content: center;
 }
 
 /* larger screens second */
@@ -51,18 +55,27 @@ header {
 
   .header-h4 {
     /* to display h4 again because media cannot override display:none */
-    display: block;
+    display: inline;
     color: white;
     font-family: 'Proza Libre', serif;
     font-weight: normal;
-    line-height: 80px;
-    margin-left: 330px;
+    margin-right: 30px;
+
+    /* its relative to the parent column half and other aware of its existence
+    , so if we use relative it will stay in the header relative to the header
+    if we use position absolute, it will leave the header flow and other element
+    wont aware of its existence and cart will take its place on header and word cart
+    will go all the way to the right outside header */
+
+    position: relative;
+    bottom: 18px;
   }
 
   .header-img {
-    margin-top: 35px;
+    /* margin-top: 35px;
     margin-right: 75px;
     margin-bottom: 30px;
-    margin-left: 750px;
+    margin-left: 750px; */
+    margin-right: 15px;
   }
 }
