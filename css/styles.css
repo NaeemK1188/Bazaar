@@ -1,0 +1,21 @@
+header {
+  background-color: rgb(43, 87, 218);
+
+  /* stays at the top */
+  position: sticky;
+  top: 0;
+
+  /* the height of the header is fixed with using pixels */
+  height: 87px;
+}
+
+.header-h1 {
+  color: white;
+  font-family: 'Proza Libre', serif;
+  font-weight: normal;
+  font-style: italic;
+  font-size: 50px;
+
+  /* the height starts from the top, so it increases from top to bottom */
+  line-height: 15px;
+}

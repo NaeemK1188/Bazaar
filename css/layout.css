@@ -1,0 +1,41 @@
+.hidden {
+  display: none !important;
+}
+
+/* starts at smaller devices like for phones */
+.container {
+  max-width: 575px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap; /* wrapping all columns together */
+}
+
+/* all columns in small screen will take 100% of the row so only one item in one row or two */
+.column-full,
+.column-half,
+.column-fifth {
+  width: 100%;
+}
+
+/* starting from 768px and above  */
+
+/* or when screen is desktop */
+@media screen and (width >= 768px) {
+  .container {
+    max-width: 1500px;
+  }
+
+  /* when two items in one row each will take half the row */
+  .column-half {
+    width: 50%;
+  }
+
+  /* when we have five elements in one row */
+  .column-fifth {
+    width: 20%;
+  }
+}
