@@ -16,9 +16,16 @@
 
 /* all columns in small screen will take 100% of the row so only one item in one row or two */
 .column-full,
-.column-half,
 .column-fifth {
   width: 100%;
+}
+
+.column-half {
+  width: 50%;
+}
+
+.column-third {
+  width: calc(100% / 3);
 }
 
 /* starting from 768px and above  */
@@ -37,5 +44,9 @@
   /* when we have five elements in one row */
   .column-fifth {
     width: 20%;
+  }
+
+  .column-third {
+    width: calc(100% / 3);
   }
 }

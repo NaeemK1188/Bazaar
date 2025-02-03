@@ -9,13 +9,60 @@ header {
   height: 87px;
 }
 
+/* smaller screens first */
 .header-h1 {
   color: white;
   font-family: 'Proza Libre', serif;
   font-weight: normal;
   font-style: italic;
-  font-size: 50px;
+  font-size: 35px;
 
   /* the height starts from the top, so it increases from top to bottom */
-  line-height: 15px;
+  line-height: 70px;
+}
+
+.header-h4 {
+  display: none;
+  color: white;
+  font-family: 'Proza Libre', serif;
+  font-weight: normal;
+  line-height: 80px;
+  margin-left: 200px;
+}
+
+.header-img {
+  display: block;
+  margin-top: 35px;
+  margin-right: 75px;
+  margin-bottom: 30px;
+  margin-left: 180px;
+}
+
+/* larger screens second */
+@media screen and (width >= 768px) {
+  .header-h1 {
+    color: white;
+    font-family: 'Proza Libre', serif;
+    font-weight: normal;
+    font-style: italic;
+    font-size: 50px;
+    line-height: 40px;
+  }
+
+  .header-h4 {
+    /* to display h4 again because media cannot override display:none */
+    display: block;
+    color: white;
+    font-family: 'Proza Libre', serif;
+    font-weight: normal;
+    line-height: 80px;
+    margin-left: 330px;
+  }
+
+  .header-img {
+    margin-top: 35px;
+    margin-right: 75px;
+    margin-bottom: 30px;
+    margin-left: 750px;
+  }
 }
