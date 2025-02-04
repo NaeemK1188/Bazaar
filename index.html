@@ -15,6 +15,7 @@
       rel="stylesheet" />
   </head>
   <body>
+    <!-- can we put container class in header instead of putting it separately? -->
     <header>
       <div class="container">
         <!-- first row  -->
@@ -22,7 +23,7 @@
           <div class="column-half">
             <h1 class="header-h1">Bazaar</h1>
           </div>
-          <div class="column-half align-center-small">
+          <div class="column-half align-center-small-header">
             <img
               class="header-img"
               src="images/cart-removebg-preview.png"
@@ -33,7 +34,25 @@
         <!-- first row  -->
       </div>
     </header>
-    <main></main>
+
+    <main class="container">
+      <div data-view="home-page">
+        <!-- row one -->
+        <div class="align-contents-small-body">
+          <h1 class="body-h1">New Arrivals</h1>
+          <!-- <label for="category-select">Categories</label> -->
+          <select name="row categories" id="category-select">
+            <option value="">Categories</option>
+            <option value="Jewelry">Jewelry</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Clothing">Clothing</option>
+          </select>
+        </div>
+        <!-- row one -->
+      </div>
+    </main>
+
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
   </body>

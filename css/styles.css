@@ -21,6 +21,7 @@ header {
   line-height: 70px;
 }
 
+/* smaller screen, we remove h3 from flow */
 .header-h4 {
   display: none;
 }
@@ -32,11 +33,31 @@ header {
 
   removing margin because we have applied the flex properties in align-center ruleset
 
-
 } */
 
+.body-h1 {
+  font-family: 'Proza Libre', serif;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+select {
+  border: none;
+  font-family: 'Proza Libre', serif;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.align-contents-small-body {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+
+  /* justify-content: space-around; */
+}
+
 /* applying on properties on children like the image */
-.align-center-small {
+.align-center-small-header {
   /* justify-content center didn't work although it inherits from parent ? */
   text-align: end;
   align-content: center;
@@ -77,5 +98,24 @@ header {
     margin-bottom: 30px;
     margin-left: 750px; */
     margin-right: 15px;
+  }
+
+  .body-h1 {
+    font-family: 'Proza Libre', serif;
+    font-weight: normal;
+    font-size: 30px;
+  }
+
+  /* i only need to change margin here, because the rest properties all already existed in the
+  same select on the top */
+  select {
+    font-size: 30px;
+    margin-left: 80px;
+  }
+
+  /* i already have flex in the same ruleset so we only need to change justify
+  content that will only works if we have a space */
+  .align-contents-small-body {
+    justify-content: left;
   }
 }
