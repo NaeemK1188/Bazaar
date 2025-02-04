@@ -35,6 +35,24 @@ header {
 
 } */
 
+/* having 75% of its parent column-fifth */
+.mock-image {
+  /* width: 75%; */
+  width: 150px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.mock-image-align {
+  text-align: center;
+}
+
+p {
+  font-size: medium;
+  font-family: 'Proza Libre', serif;
+  padding: 7px;
+}
+
 .body-h1 {
   font-family: 'Proza Libre', serif;
   font-weight: normal;
@@ -49,8 +67,7 @@ select {
 }
 
 hr {
-  position: relative;
-  bottom: 19px;
+  margin-top: -12px;
 }
 
 /* affected on both small and large, but in media screen we can add more properties keeping the one here  */
@@ -98,11 +115,8 @@ hr {
     bottom: 18px;
   }
 
+  /* don't use margin because it will cause an increase to the overall size */
   .header-img {
-    /* margin-top: 35px;
-    margin-right: 75px;
-    margin-bottom: 30px;
-    margin-left: 750px; */
     margin-right: 15px;
   }
 
@@ -123,5 +137,9 @@ hr {
   content that will only works if we have a space */
   .align-contents-small-body {
     justify-content: left;
+  }
+
+  hr {
+    margin-bottom: 50px;
   }
 }
