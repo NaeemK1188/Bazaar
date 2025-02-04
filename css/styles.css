@@ -48,6 +48,12 @@ select {
   font-size: 20px;
 }
 
+hr {
+  position: relative;
+  bottom: 19px;
+}
+
+/* affected on both small and large, but in media screen we can add more properties keeping the one here  */
 .align-contents-small-body {
   display: flex;
   justify-content: space-between;
