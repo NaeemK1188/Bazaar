@@ -1,24 +1,14 @@
-interface ListingData {
-  // listingTitle:string;
-  title: string;
-  // listingImageURL:string[];
-  images: string[];
-}
-
-let listingData: ListingData[] = [];
-
+'use strict';
+let listingData = [];
 // ---------------------------fetchListings() callback------------------------------
-async function fetchListings(): Promise<void> {
+async function fetchListings() {
   try {
     const response = await fetch('https://api.escuelajs.co/api/v1/products');
-
     // no data existed or some error generated while fetching from server
     if (!response.ok) {
       throw new Error(`http error status:${response.status}`);
     }
-
-    listingData = (await response.json()) as ListingData[];
-
+    listingData = await response.json();
     // console.log(listingData[0].title);
     // console.log(listingData[0].images)
     // console.log(listingData[0].images[0])
@@ -27,11 +17,8 @@ async function fetchListings(): Promise<void> {
     console.error('Error', error);
   }
 }
-
 // ---------------------------fetchListings() callback------------------------------
-
 // ---------------------------DOMContentLoaded() eventListener------------------------------
-
 document.addEventListener('DOMContentLoaded', async () => {
   await fetchListings(); // calling fetch first to use creating render function
   // using await with promise functions. Without await im getting
@@ -39,5 +26,4 @@ document.addEventListener('DOMContentLoaded', async () => {
   // we have access to a global listingData
   console.log(listingData);
 });
-
 // ---------------------------DOMContentLoaded() eventListener------------------------------
