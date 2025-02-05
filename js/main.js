@@ -1,32 +1,21 @@
-interface ListingData {
-  title: string;
-
-  images: string[];
-}
-
+'use strict';
 const $globalDiv = document.querySelector('#entry-list');
-
 if (!$globalDiv) {
   throw new Error('$globalDiv does not exist');
 }
-
-let listingData: ListingData[] = [];
-
-async function validateImage(url: string): Promise<string> {
+let listingData = [];
+async function validateImage(url) {
   const img = new Image(); // creating a dom element with width and height
   img.src = url;
   // Await the loading or error event
   return await new Promise((resolve, reject) => {
-    img.onload = (): void => resolve(url); // Resolve if image loads successfully, eventlistener waiting to resolve
-    img.onerror = (): void => reject(new Error(`Invalid image URL: ${url}`)); // Reject if image fails to load waiting to reject
+    img.onload = () => resolve(url); // Resolve if image loads successfully, eventlistener waiting to resolve
+    img.onerror = () => reject(new Error(`Invalid image URL: ${url}`)); // Reject if image fails to load waiting to reject
   });
 }
-
 // Function to validate images for each object
 // the Promise ListingData[] it will return promise resolved to listingData array of objects
-async function filterValidImages(
-  itemsArray: ListingData[],
-): Promise<ListingData[]> {
+async function filterValidImages(itemsArray) {
   const results = [];
   for (const item of itemsArray) {
     const validImages = [];
@@ -44,29 +33,23 @@ async function filterValidImages(
       results.push({ ...item, images: validImages }); // Add object with filtered images
     }
   }
-
   return results;
 }
-
 // ---------------------------fetchListings() callback------------------------------
-async function fetchListings(): Promise<void> {
+async function fetchListings() {
   try {
     const response = await fetch('https://api.escuelajs.co/api/v1/products');
-
     // no data existed or some error generated while fetching from server
     if (!response.ok) {
       throw new Error(`http error status:${response.status}`);
     }
-
-    listingData = (await response.json()) as ListingData[];
+    listingData = await response.json();
   } catch (error) {
     // only for developers to see the error
     console.error('Error', error);
   }
 }
-
 // ---------------------------fetchListings() callback------------------------------
-
 // ---------------------------DOMContentLoaded() eventListener------------------------------
 // we are calling the async callback function with event parameter which is not included here in()
 document.addEventListener('DOMContentLoaded', async () => {
@@ -75,15 +58,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   // nothing. we don't need to do a return for promise function in the top because
   // we have access to a global listingData
   listingData = await filterValidImages(listingData);
-
   for (let i = 0; i < listingData.length; i++) {
     $globalDiv.append(creatingListing(listingData[i]));
   }
 });
-
 // ---------------------------DOMContentLoaded() eventListener------------------------------
-
-function creatingListing(listingData: ListingData): HTMLDivElement {
+function creatingListing(listingData) {
   const $parentDiv = document.createElement('div');
   $parentDiv.setAttribute('class', 'column-fifth mock-image-align item-design'); // each column is an element
   const $img = document.createElement('img');
@@ -94,6 +74,5 @@ function creatingListing(listingData: ListingData): HTMLDivElement {
   const $p = document.createElement('p');
   $p.textContent = listingData.title;
   $parentDiv.appendChild($p);
-
   return $parentDiv;
 }
