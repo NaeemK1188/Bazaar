@@ -59,7 +59,6 @@ async function fetchListings(): Promise<void> {
     }
 
     listingData = (await response.json()) as ListingData[];
-    console.log(listingData);
   } catch (error) {
     // only for developers to see the error
     console.error('Error', error);
@@ -76,7 +75,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // nothing. we don't need to do a return for promise function in the top because
   // we have access to a global listingData
   listingData = await filterValidImages(listingData);
-  console.log(listingData);
+
   for (let i = 0; i < listingData.length; i++) {
     $globalDiv.append(creatingListing(listingData[i]));
   }
