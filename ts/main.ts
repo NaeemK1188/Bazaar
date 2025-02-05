@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 function creatingListing(listingData: ListingData): HTMLDivElement {
   const $parentDiv = document.createElement('div');
-  $parentDiv.setAttribute('class', 'column-fifth mock-image-align'); // each column is an element
+  $parentDiv.setAttribute('class', 'column-fifth mock-image-align item-design'); // each column is an element
   const $img = document.createElement('img');
   $img.setAttribute('class', 'mock-image');
   $img.setAttribute('src', listingData.images[0]); // assigning first image in the array of images

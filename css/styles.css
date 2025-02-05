@@ -59,12 +59,7 @@ select {
   font-weight: normal;
   font-size: 20px;
   cursor: pointer;
-}
-
-/* no cursor on option  */
-select:hover,
-option:hover {
-  cursor: pointer;
+  background-color: cornsilk;
 }
 
 hr {
@@ -83,6 +78,20 @@ hr {
   /* justify-content center didn't work although it inherits from parent ? */
   text-align: end;
   align-content: center;
+}
+
+/* after calling the create function the styling is applied */
+.item-design {
+  background-color: aliceblue;
+  margin-top: 20px;
+  margin-right: 10px;
+  border: rgb(202, 201, 201) solid;
+  border-width: thin;
+  border-radius: 10px;
+}
+
+.align-row {
+  justify-content: space-between;
 }
 
 /* larger screens second */
@@ -109,7 +118,6 @@ hr {
     if we use position absolute, it will leave the header flow and other element
     wont aware of its existence and cart will take its place on header and word cart
     will go all the way to the right outside header */
-
     position: relative;
     bottom: 18px;
   }
