@@ -28,16 +28,10 @@ header {
 
 /* we don't have a ruleset for the cart icon on the header in small screen */
 
-/* .header-img {
-  display: block;
-
-  removing margin because we have applied the flex properties in align-center ruleset
-
-} */
+/* removing margin because we have applied the flex properties in align-center ruleset */
 
 /* having 75% of its parent column-fifth */
 .mock-image {
-  /* width: 75%; */
   width: 150px;
   height: 200px;
   object-fit: contain;
@@ -82,8 +76,6 @@ hr {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
-
-  /* justify-content: space-around; */
 }
 
 /* applying on properties on children like the image */
