@@ -67,6 +67,12 @@ select {
   cursor: pointer;
 }
 
+/* no cursor on option  */
+select:hover,
+option:hover {
+  cursor: pointer;
+}
+
 hr {
   margin-top: -12px;
 }

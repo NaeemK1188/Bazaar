@@ -1,7 +1,6 @@
 interface ListingData {
-  // listingTitle:string;
   title: string;
-  // listingImageURL:string[];
+
   images: string[];
 }
 
@@ -24,7 +23,7 @@ async function validateImage(url: string): Promise<string> {
 }
 
 // Function to validate images for each object
-// Promise<ListingData[]> it will return promise resolved to listingData array of objects
+// the Promise ListingData[] it will return promise resolved to listingData array of objects
 async function filterValidImages(
   itemsArray: ListingData[],
 ): Promise<ListingData[]> {
@@ -45,7 +44,7 @@ async function filterValidImages(
       results.push({ ...item, images: validImages }); // Add object with filtered images
     }
   }
-  console.log('test', results);
+
   return results;
 }
 
@@ -61,9 +60,6 @@ async function fetchListings(): Promise<void> {
 
     listingData = (await response.json()) as ListingData[];
     console.log(listingData);
-    // console.log(listingData[0].title);
-    // console.log(listingData[0].images)
-    // console.log(listingData[0].images[0])
   } catch (error) {
     // only for developers to see the error
     console.error('Error', error);
@@ -95,7 +91,6 @@ function creatingListing(listingData: ListingData): HTMLDivElement {
   $img.setAttribute('class', 'mock-image');
   $img.setAttribute('src', listingData.images[0]); // assigning first image in the array of images
   $img.setAttribute('alt', listingData.title);
-  // if (await $img.onload)
   $parentDiv.appendChild($img);
   const $p = document.createElement('p');
   $p.textContent = listingData.title;
@@ -103,21 +98,3 @@ function creatingListing(listingData: ListingData): HTMLDivElement {
 
   return $parentDiv;
 }
-
-// -------------------mock up structure for each listing--------------------------------------------
-
-//
-//
-//
-//        <div class="row">
-//          <div class="column-fifth mock-image-align">
-//             <img class="mock-image" src="images/appleearpods4.webp" alt="apple earbuds 4" />
-//             <p>apple earbuds gen 4</p>
-//          </div>
-//          <div class="column-fifth mock-image-align">
-//             <img class="mock-image" src="images/appleearpods4.webp" alt="apple earbuds 4" />
-//             <p>apple earbuds gen 4</p>
-//          </div>
-//           .... as many as elements in the server
-//        </div>
-// -------------------mock up structure for each listing--------------------------------------------
