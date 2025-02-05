@@ -91,7 +91,7 @@ hr {
 }
 
 .align-row {
-  justify-content: space-between;
+  margin-left: 10px;
 }
 
 /* larger screens second */
@@ -148,5 +148,10 @@ hr {
 
   hr {
     margin-bottom: 50px;
+  }
+
+  /* applied only for large screens */
+  .align-row {
+    justify-content: space-between;
   }
 }
