@@ -64,6 +64,7 @@ select {
   font-family: 'Proza Libre', serif;
   font-weight: normal;
   font-size: 20px;
+  cursor: pointer;
 }
 
 hr {
