@@ -10,6 +10,7 @@ const $select = document.querySelector('select');
 const $h1NumberListing = document.querySelector('.number-listing');
 const $h1Viewing = document.querySelector('.viewing');
 const $h1NewArrivals = document.querySelector('.body-h1');
+const $h1Bazzar = document.querySelector('.header-h1');
 // select is an array of options
 // console.log($select?.options[1].value);  [i] = jewelry to show all values $select.value
 // console.log($select?.options); // it not showing all the select options, but it shows the length which is 5
@@ -18,10 +19,11 @@ if (
   !$select ||
   !$h1NumberListing ||
   !$h1Viewing ||
-  !$h1NewArrivals
+  !$h1NewArrivals ||
+  !$h1Bazzar
 ) {
   throw new Error(
-    '$globalDiv or $select or $h1NumberListing or $h1Viewing or $h1NewArrivals not exist',
+    '$globalDiv or $select or $h1NumberListing or $h1Viewing or $h1NewArrivals or $h1Bazzar not exist',
   );
 }
 let listingData = [];
@@ -141,3 +143,16 @@ $select.addEventListener('change', (event) => {
   $h1NumberListing.textContent = `${result.length} items`;
 });
 // -------------------------select eventListener()----------------------------------------
+// --------------------------h1 click eventListener()---------------------------------------
+$h1Bazzar.addEventListener('click', async () => {
+  await fetchListings();
+  $globalDiv.innerHTML = '';
+  for (let i = 0; i < listingData.length; i++) {
+    $globalDiv.append(creatingListing(listingData[i]));
+  }
+  $h1NewArrivals.className = 'body-h1';
+  $select.selectedIndex = 0;
+  $h1Viewing.className = 'hidden';
+  $h1NumberListing.className = 'hidden';
+});
+// -------------------------- h1 click eventListener()---------------------------------------

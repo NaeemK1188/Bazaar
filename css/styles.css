@@ -19,6 +19,12 @@ header {
 
   /* the height starts from the top, so it increases from top to bottom */
   line-height: 70px;
+  cursor: pointer;
+  position: relative;
+}
+
+.header-h1:active {
+  top: 3px;
 }
 
 /* smaller screen, we remove h3 from flow */
