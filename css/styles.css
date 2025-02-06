@@ -94,6 +94,16 @@ hr {
   margin-left: 10px;
 }
 
+.viewing {
+  display: none;
+}
+
+.number-listing {
+  font-family: 'Proza Libre', serif;
+  font-weight: normal;
+  font-size: 20px;
+}
+
 /* larger screens second */
 @media screen and (width >= 768px) {
   .header-h1 {
@@ -149,6 +159,19 @@ hr {
   content that will only works if we have a space */
   .align-contents-small-body {
     justify-content: left;
+
+    /* justify-content:space-evenly; */
+  }
+
+  .viewing {
+    display: inline;
+    font-size: 30px;
+    position: relative;
+    left: 70px;
+  }
+
+  .number-listing {
+    font-size: 30px;
   }
 
   hr {
@@ -157,6 +180,6 @@ hr {
 
   /* applied only for large screens */
   .align-row {
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
 }
