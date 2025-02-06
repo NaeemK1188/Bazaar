@@ -92,6 +92,14 @@ function creatingListing(listingData: ListingData): HTMLDivElement {
   const $p = document.createElement('p');
   $p.textContent = listingData.title;
   $parentDiv.appendChild($p);
+  const $addToCartBtn = document.createElement('button');
+  $addToCartBtn.setAttribute('class', 'add-to-cart-btn');
+  // to use font awesome we need to add its link in the html file similar to code journal
+  // using innerHTML to put an actual html code in typescript file
+  $addToCartBtn.innerHTML =
+    'Add to Cart <i class="fa-solid fa-cart-shopping"></i>';
+  // $addToCartBtn.textContent = 'Add to Cart'; // using old way .textContent
+  $parentDiv.appendChild($addToCartBtn);
 
   return $parentDiv;
 }

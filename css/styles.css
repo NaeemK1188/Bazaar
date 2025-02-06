@@ -7,6 +7,9 @@ header {
 
   /* the height of the header is fixed with using pixels */
   height: 87px;
+
+  /* so its above the body by pushing it toward us */
+  z-index: 100;
 }
 
 /* smaller screens first */
@@ -108,11 +111,6 @@ hr {
   transition: transform 0.3s ease;
 }
 
-.item-design:hover {
-  /* instead of using top: 3px */
-  transform: translateY(10px);
-}
-
 .align-row {
   margin-left: 10px;
 }
@@ -125,6 +123,21 @@ hr {
   font-family: 'Proza Libre', serif;
   font-weight: normal;
   font-size: 20px;
+}
+
+.add-to-cart-btn {
+  background-color: rgb(255, 255, 3);
+  color: black;
+  font-family: 'Proza Libre', serif;
+  font-weight: normal;
+  font-size: smaller;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+.add-to-cart-btn:active {
+  top: 2px;
 }
 
 /* larger screens second */
@@ -197,5 +210,31 @@ hr {
   /* applied only for large screens */
   .align-row {
     justify-content: space-evenly;
+  }
+
+  /* adding the hover only on bigger screens */
+
+  .item-design {
+    /* we added display flex to apply the properties direction and justify. Now the .item-design becomes the new parent
+    after adding the display flex to it. Display flex ruins previous rulesets we have created */
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+  }
+
+  .item-design:hover {
+    /* instead of using top: 3px */
+    transform: translateY(10px);
+  }
+
+  .mock-image {
+    /* it centers out the image using auto  */
+    margin: auto;
+  }
+
+  .add-to-cart-btn {
+    /* using auto on left and right because margin auto did not push it to bottom */
+    margin-left: auto;
+    margin-right: auto;
   }
 }
