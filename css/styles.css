@@ -156,17 +156,10 @@ hr {
     margin-left: 80px;
   }
 
-  /* not styled in css ?
-  /* option {
-    cursor: pointer;
-  } */
-
   /* i already have flex in the same ruleset so we only need to change justify
   content that will only works if we have a space */
   .align-contents-small-body {
     justify-content: left;
-
-    /* justify-content:space-evenly; */
   }
 
   .viewing {
