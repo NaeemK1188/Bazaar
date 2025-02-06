@@ -100,10 +100,10 @@ function creatingListing(listingData: ListingData): HTMLDivElement {
 
 // -------------------------select eventListener()----------------------------------------
 // click event happens whenever i click. Using change, it will happen whenever i change the option in select
-$select.addEventListener('click', (event: Event) => {
+$select.addEventListener('change', (event: Event) => {
   const eventTarget = event.target as HTMLSelectElement;
   console.log(eventTarget.value); // test hold the DOM object, so it has all its properties
-  $body.classList.add('view-blur');
+  // $body.classList.add('view-blur');
   // event.target is the actual DOM element
 
   // doing filtering by array.filter
@@ -120,11 +120,13 @@ $select.addEventListener('click', (event: Event) => {
   }
 
   // or if result.length
-  if (result.length > 0) {
-    // when we have listing remove the blur. it only works for one time
-    // when it goes back to zero listing its blur again
-    $body.classList.remove('view-blur');
-  }
+
+  // when we have listing remove the blur. it only works for one time
+  // when it goes back to zero listing its blur again
+
+  $body.classList.remove('view-blur'); // when we change option
+  $select.blur(); // event through code not user interaction or if we change the option immediately
+  // inside the select box not after clicking outside
 
   $h1NewArrivals.className = 'hidden';
   $h1NumberListing.className = 'number-listing';
@@ -133,6 +135,17 @@ $select.addEventListener('click', (event: Event) => {
 });
 
 // -------------------------select eventListener()----------------------------------------
+// works with change eventListener to add blur
+// fired when we are inside the select because select is part of control elements inside form
+$select.addEventListener('focus', () => {
+  $body.classList.add('view-blur');
+});
+
+// works with change eventListener to add blur
+// this happens when user click outside the select box which is also part of the control elements inside form
+$select.addEventListener('blur', () => {
+  $body.classList.remove('view-blur');
+});
 
 // --------------------------h1 click eventListener()---------------------------------------
 

@@ -99,6 +99,18 @@ hr {
   border: rgb(202, 201, 201) solid;
   border-width: thin;
   border-radius: 10px;
+
+  /* instead of using position: relative */
+
+  /* we can use transform as property inside transition */
+
+  /* applying transform for 0.3 seconds and ease */
+  transition: transform 0.3s ease;
+}
+
+.item-design:hover {
+  /* instead of using top: 3px */
+  transform: translateY(10px);
 }
 
 .align-row {

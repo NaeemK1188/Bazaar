@@ -75,10 +75,10 @@ function creatingListing(listingData) {
 // ---------------------------creatingListing()---------------------------------------------
 // -------------------------select eventListener()----------------------------------------
 // click event happens whenever i click. Using change, it will happen whenever i change the option in select
-$select.addEventListener('click', (event) => {
+$select.addEventListener('change', (event) => {
   const eventTarget = event.target;
   console.log(eventTarget.value); // test hold the DOM object, so it has all its properties
-  $body.classList.add('view-blur');
+  // $body.classList.add('view-blur');
   // event.target is the actual DOM element
   // doing filtering by array.filter
   // acting as event.target. so whenever i click on option, it will show what i clicked
@@ -91,17 +91,27 @@ $select.addEventListener('click', (event) => {
     $globalDiv.append(creatingListing(result[i]));
   }
   // or if result.length
-  if (result.length > 0) {
-    // when we have listing remove the blur. it only works for one time
-    // when it goes back to zero listing its blur again
-    $body.classList.remove('view-blur');
-  }
+  // when we have listing remove the blur. it only works for one time
+  // when it goes back to zero listing its blur again
+  $body.classList.remove('view-blur'); // when we change option
+  $select.blur(); // event through code not user interaction or if we change the option immediately
+  // inside the select box not after clicking outside
   $h1NewArrivals.className = 'hidden';
   $h1NumberListing.className = 'number-listing';
   $h1Viewing.className = 'viewing';
   $h1NumberListing.textContent = `${result.length} items`;
 });
 // -------------------------select eventListener()----------------------------------------
+// works with change eventListener to add blur
+// fired when we are inside the select because select is part of control elements inside form
+$select.addEventListener('focus', () => {
+  $body.classList.add('view-blur');
+});
+// works with change eventListener to add blur
+// this happens when user click outside the select box which is also part of the control elements inside form
+$select.addEventListener('blur', () => {
+  $body.classList.remove('view-blur');
+});
 // --------------------------h1 click eventListener()---------------------------------------
 $h1Bazzar.addEventListener('click', async () => {
   await fetchListings();
