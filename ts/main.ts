@@ -12,6 +12,7 @@ const $h1NumberListing = document.querySelector('.number-listing');
 const $h1Viewing = document.querySelector('.viewing');
 const $h1NewArrivals = document.querySelector('.body-h1');
 const $h1Bazzar = document.querySelector('.header-h1');
+const $body = document.querySelector('body');
 
 // select is an array of options
 // [i] = jewelry to show all values $select.value
@@ -28,6 +29,10 @@ if (
   throw new Error(
     '$globalDiv or $select or $h1NumberListing or $h1Viewing or $h1NewArrivals or $h1Bazzar not exist',
   );
+}
+
+if (!$body) {
+  throw new Error('$body does not exists');
 }
 
 let listingData: ListingData[] = [];
@@ -95,14 +100,15 @@ function creatingListing(listingData: ListingData): HTMLDivElement {
 
 // -------------------------select eventListener()----------------------------------------
 // click event happens whenever i click. Using change, it will happen whenever i change the option in select
-$select.addEventListener('change', (event: Event) => {
+$select.addEventListener('click', (event: Event) => {
   const eventTarget = event.target as HTMLSelectElement;
   console.log(eventTarget.value); // test hold the DOM object, so it has all its properties
-
+  $body.classList.add('view-blur');
   // event.target is the actual DOM element
 
   // doing filtering by array.filter
   // acting as event.target. so whenever i click on option, it will show what i clicked
+
   const result = listingData.filter(
     (listing) => listing.category === eventTarget.value,
   ); // or use $select.value with .category.name in fakeplatzi api
@@ -111,6 +117,13 @@ $select.addEventListener('change', (event: Event) => {
 
   for (let i = 0; i < result.length; i++) {
     $globalDiv.append(creatingListing(result[i]));
+  }
+
+  // or if result.length
+  if (result.length > 0) {
+    // when we have listing remove the blur. it only works for one time
+    // when it goes back to zero listing its blur again
+    $body.classList.remove('view-blur');
   }
 
   $h1NewArrivals.className = 'hidden';

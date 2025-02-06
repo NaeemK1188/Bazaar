@@ -68,6 +68,11 @@ select {
   background-color: cornsilk;
 }
 
+.view-blur {
+  filter: blur(1px);
+  background-color: gray;
+}
+
 hr {
   margin-top: -12px;
 }
