@@ -1,9 +1,14 @@
 'use strict';
 const $globalDiv = document.querySelector('#entry-list');
-if (!$globalDiv) {
-  throw new Error('$globalDiv does not exist');
+const $select = document.querySelector('select');
+// select is an array of options
+// console.log($select?.options[1].value);  [i] = jewelry to show all values $select.value
+// console.log($select?.options); // it not showing all the select options, but it shows the length which is 5
+if (!$globalDiv || !$select) {
+  throw new Error('$globalDiv or $select not exist');
 }
 let listingData = [];
+// -----------------filter unresponsive images--------------------------------------------
 async function validateImage(url) {
   const img = new Image(); // creating a dom element with width and height
   img.src = url;
@@ -23,9 +28,8 @@ async function filterValidImages(itemsArray) {
       try {
         await validateImage(imageUrl); // Validate each image URL
         validImages.push(imageUrl); // Add to validImages if successful
-      } catch (
-        error // if its rejects to error the image
-      ) {
+      } catch (error) {
+        // if its rejects to error the image
         console.error(error); // Log the invalid image URL
       }
     }
@@ -35,6 +39,7 @@ async function filterValidImages(itemsArray) {
   }
   return results;
 }
+// -----------------filter unresponsive images--------------------------------------------
 // ---------------------------fetchListings() callback------------------------------
 async function fetchListings() {
   try {
@@ -44,6 +49,9 @@ async function fetchListings() {
       throw new Error(`http error status:${response.status}`);
     }
     listingData = await response.json();
+    console.log(listingData);
+    console.log(listingData[15].category.id); // category electronic
+    console.log(listingData[15].category.name); // category electronics
   } catch (error) {
     // only for developers to see the error
     console.error('Error', error);
@@ -52,6 +60,7 @@ async function fetchListings() {
 // ---------------------------fetchListings() callback------------------------------
 // ---------------------------DOMContentLoaded() eventListener------------------------------
 // we are calling the async callback function with event parameter which is not included here in()
+// the code starts from here or the reading on the initial view and when refresh
 document.addEventListener('DOMContentLoaded', async () => {
   await fetchListings(); // calling fetch first to use creating render function
   // using await with promise functions. Without await im getting
@@ -63,6 +72,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 });
 // ---------------------------DOMContentLoaded() eventListener------------------------------
+// ---------------------------creatingListing()---------------------------------------------
 function creatingListing(listingData) {
   const $parentDiv = document.createElement('div');
   $parentDiv.setAttribute('class', 'column-fifth mock-image-align item-design'); // each column is an element
@@ -76,3 +86,28 @@ function creatingListing(listingData) {
   $parentDiv.appendChild($p);
   return $parentDiv;
 }
+// ---------------------------creatingListing()---------------------------------------------
+// -------------------------select eventListener()----------------------------------------
+// click event happens whenever i click. Using change, it will happen whenever i change the option in select
+$select.addEventListener('change', (event) => {
+  const test = event.target;
+  console.log(test.value);
+  // event.target is the actual DOM element
+  // $globalDiv.classList.add('hidden'); when click select, the the listing becomes hidden
+  // if ($select.options[1].value === 'Jewelry') doing filter by if statement
+  // {
+  //   $globalDiv.classList.add('hidden'); // its applied on Select first before jewelry
+  // }
+  // doing filtering by array.filter
+  console.log($select.value); // acting as event.target. so whenever i click on option, it will show what i clicked
+  const result = listingData.filter(
+    (listing) => listing.category.name === $select.value,
+  ); // it will show always the clothing
+  console.log(result); // holds my filtered listings
+  $globalDiv.innerHTML = ''; // remove all the children
+  // $globalDiv.children[1].remove(); //delete specific categories
+  for (let i = 0; i < result.length; i++) {
+    $globalDiv.append(creatingListing(result[i]));
+  }
+});
+// -------------------------select eventListener()----------------------------------------
