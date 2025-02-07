@@ -13,6 +13,9 @@ const $h1Viewing = document.querySelector('.viewing');
 const $h1NewArrivals = document.querySelector('.body-h1');
 const $h1Bazzar = document.querySelector('.header-h1');
 const $body = document.querySelector('body');
+const $divCartPage = document.querySelector('div[data-view=cart-page]');
+const $divHomePage = document.querySelector('div[data-view=home-page]');
+const $cartHeader = document.querySelector('.header-h4');
 
 // select is an array of options
 // [i] = jewelry to show all values $select.value
@@ -27,12 +30,12 @@ if (
   !$h1Bazzar
 ) {
   throw new Error(
-    '$globalDiv or $select or $h1NumberListing or $h1Viewing or $h1NewArrivals or $h1Bazzar not exist',
+    '$globalDiv, $select, $h1NumberListing, $h1Viewing, $h1NewArrivals, or $h1Bazzar not exist',
   );
 }
 
-if (!$body) {
-  throw new Error('$body does not exists');
+if (!$body || !$divCartPage || !$divHomePage || !$cartHeader) {
+  throw new Error('$body, $divHomePage, or $divHomePage do not exist');
 }
 
 let listingData: ListingData[] = [];
@@ -116,10 +119,10 @@ $select.addEventListener('change', (event: Event) => {
 
   // doing filtering by array.filter
   // acting as event.target. so whenever i click on option, it will show what i clicked
-
+  // or use $select.value with .category.name in fakeplatzi api
   const result = listingData.filter(
     (listing) => listing.category === eventTarget.value,
-  ); // or use $select.value with .category.name in fakeplatzi api
+  );
   console.log(result); // holds my filtered listings
   $globalDiv.innerHTML = ''; // remove all the children
 
@@ -158,6 +161,9 @@ $select.addEventListener('blur', () => {
 // --------------------------h1 click eventListener()---------------------------------------
 
 $h1Bazzar.addEventListener('click', async () => {
+  $divCartPage.classList.add('hidden');
+  $divHomePage.classList.remove('hidden');
+
   await fetchListings();
 
   $globalDiv.innerHTML = '';
@@ -168,6 +174,12 @@ $h1Bazzar.addEventListener('click', async () => {
   $select.selectedIndex = 0;
   $h1Viewing.className = 'hidden';
   $h1NumberListing.className = 'hidden';
+  console.log('bazaar firing');
 });
 
 // -------------------------- h1 click eventListener()---------------------------------------
+
+$cartHeader.addEventListener('click', () => {
+  $divHomePage.classList.add('hidden');
+  $divCartPage.classList.remove('hidden');
+});

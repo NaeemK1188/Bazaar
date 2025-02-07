@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BAZAAR</title>
-    <link rel="icon" href="images/cart.jpg" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/styles.css" />
@@ -19,6 +18,7 @@
       integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer" />
+    <link rel="icon" href="images/tshirt.jpg" />
   </head>
   <body>
     <!-- can we put container class in header instead of putting it separately? -->
@@ -42,7 +42,7 @@
     </header>
 
     <main class="container">
-      <div data-view="home-page" class="">
+      <div data-view="home-page" class="hidden">
         <!-- row 1 -->
         <!-- align-contents-small-body is adding functionalities to row we can even remove row and
           use align-contents-small-body as a new row  -->
@@ -51,7 +51,10 @@
           <!-- acting as a column half -->
           <h1 class="body-h1">New Arrivals</h1>
           <h1 class="viewing hidden">Currently Viewing:</h1>
-          <select name="categories" id="category-select">
+          <select
+            class="categories-homepage"
+            name="categories"
+            id="category-select">
             <!-- the value will be used in typescript -->
             <option value="">Categories</option>
             <option value="electronics">Electronics</option>
@@ -68,6 +71,92 @@
         <!-- using id because the class row is everywhere, so to use this one only,
         we used id to be more specific -->
         <div class="row align-row" id="entry-list"></div>
+      </div>
+
+      <div data-view="cart-page" class="">
+        <div class="row">
+          <div class="column-full">
+            <h1 class="body-h1">Your Cart</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-full">
+            <hr />
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-third-cart column-third-cart-align">
+            <img
+              class="mock-image"
+              src="images/appleearpods4.webp"
+              alt="apple earbuds 4" />
+            <p class="p-col-third-1-cart">
+              Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
+            </p>
+          </div>
+          <div class="column-third-cart">
+            <p class="p-col-third-2-cart">
+              Your perfect pack for everyday use and walks in the forest. Stash
+              your laptop (up to 15 inches) in the padded sleeve, your everyday
+            </p>
+          </div>
+          <div class="column-third-cart num-items-select-align">
+            <select class="num-items-select" name="number-items">
+              <option value="">1</option>
+              <option value="num1">2</option>
+              <option value="num2">3</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="column-third-cart column-third-cart-align">
+            <img
+              class="mock-image"
+              src="images/applesmartwatch.webp"
+              alt="apple earbuds 4" />
+            <p class="p-col-third-1-cart">
+              Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
+            </p>
+          </div>
+          <div class="column-third-cart">
+            <p class="p-col-third-2-cart">
+              Your perfect pack for everyday use and walks in the forest. Stash
+              your laptop (up to 15 inches) in the padded sleeve, your everyday
+            </p>
+          </div>
+          <div class="column-third-cart num-items-select-align">
+            <select class="num-items-select" name="number-items">
+              <option value="">1</option>
+              <option value="num1">2</option>
+              <option value="num2">3</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="column-third-cart column-third-cart-align">
+            <img
+              class="mock-image"
+              src="images/generic gaminglaptop.webp"
+              alt="apple earbuds 4" />
+            <p class="p-col-third-1-cart">
+              Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
+            </p>
+          </div>
+          <div class="column-third-cart">
+            <p class="p-col-third-2-cart">
+              Your perfect pack for everyday use and walks in the forest. Stash
+              your laptop (up to 15 inches) in the padded sleeve, your everyday
+            </p>
+          </div>
+          <div class="column-third-cart num-items-select-align">
+            <select class="num-items-select" name="number-items">
+              <option value="">1</option>
+              <option value="num1">2</option>
+              <option value="num2">3</option>
+            </select>
+          </div>
+        </div>
       </div>
     </main>
 
