@@ -35,6 +35,7 @@
               src="images/cart-removebg-preview.png"
               alt="white cart" />
             <h3 class="header-h4">Cart</h3>
+            <p class="yellow-cir">1</p>
           </div>
         </div>
         <!-- first row  -->
@@ -86,82 +87,123 @@
           </div>
         </div>
         <!-- adding-order-cart overrides row class -->
-        <div class="row">
-          <div class="column-third-cart column-third-cart-align" id="column1">
-            <img
-              class="mock-image"
-              src="images/appleearpods4.webp"
-              alt="apple earbuds 4" />
-            <p class="p-col-third-1-cart">
-              Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
-            </p>
+        <!-- rows-container-cart acts as a row and each row inside is a column -->
+        <div class="rows-container-cart">
+          <div class="row">
+            <div class="column-third-cart column-third-cart-align" id="column1">
+              <img
+                class="mock-image"
+                src="images/appleearpods4.webp"
+                alt="apple earbuds 4" />
+              <p class="p-col-third-1-cart">
+                Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
+              </p>
+            </div>
+            <div class="column-third-cart num-items-select-align" id="column2">
+              <p class="p-col-third-2-cart">
+                Your perfect pack for everyday use and walks in the forest.
+                Stash your laptop (up to 15 inches) in the padded sleeve, your
+                everyday
+              </p>
+            </div>
+            <div class="column-third-cart num-items-select-align" id="column3">
+              <select class="num-items-select" name="number-items">
+                <option value="">1</option>
+                <option value="num1">2</option>
+                <option value="num2">3</option>
+              </select>
+            </div>
           </div>
-          <div class="column-third-cart num-items-select-align" id="column2">
-            <p class="p-col-third-2-cart">
-              Your perfect pack for everyday use and walks in the forest. Stash
-              your laptop (up to 15 inches) in the padded sleeve, your everyday
-            </p>
-          </div>
-          <div class="column-third-cart num-items-select-align" id="column3">
-            <select class="num-items-select" name="number-items">
-              <option value="">1</option>
-              <option value="num1">2</option>
-              <option value="num2">3</option>
-            </select>
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="column-third-cart column-third-cart-align">
-            <img
-              class="mock-image"
-              src="images/applesmartwatch.webp"
-              alt="apple earbuds 4" />
-            <p class="p-col-third-1-cart">
-              Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
-            </p>
+          <!-- <div class="row">
+            <div class="column-third-cart column-third-cart-align">
+              <img class="mock-image" src="images/applesmartwatch.webp" alt="apple earbuds 4" />
+              <p class="p-col-third-1-cart"> Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</p>
+            </div>
+            <div class="column-third-cart num-items-select-align">
+              <p class="p-col-third-2-cart">
+                Your perfect pack for everyday use and walks in the forest. Stash
+                your laptop (up to 15 inches) in the padded sleeve, your everyday
+              </p>
+            </div>
+            <div class="column-third-cart num-items-select-align">
+              <select class="num-items-select" name="number-items">
+                <option value="">1</option>
+                <option value="num1">2</option>
+                <option value="num2">3</option>
+              </select>
+            </div>
           </div>
-          <div class="column-third-cart num-items-select-align">
-            <p class="p-col-third-2-cart">
-              Your perfect pack for everyday use and walks in the forest. Stash
-              your laptop (up to 15 inches) in the padded sleeve, your everyday
-            </p>
+          <div class="row">
+            <div class="column-third-cart column-third-cart-align">
+              <img class="mock-image" src="images/generic gaminglaptop.webp" alt="apple earbuds 4" />
+              <p class="p-col-third-1-cart">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</p>
+            </div>
+            <div class="column-third-cart num-items-select-align">
+              <p class="p-col-third-2-cart">
+                Your perfect pack for everyday use and walks in the forest. Stash
+                your laptop (up to 15 inches) in the padded sleeve, your everyday
+              </p>
+            </div>
+            <div class="column-third-cart num-items-select-align">
+              <select class="num-items-select" name="number-items">
+                <option value="">1</option>
+                <option value="num1">2</option>
+                <option value="num2">3</option>
+              </select>
+            </div>
+          </div> -->
+        </div>
+        <!-- acts as a row container and every row inside is treated as a column -->
+        <div class="order-container">
+          <div class="row">
+            <div class="column-full">
+              <h1 class="order-summary">Order Summary</h1>
+            </div>
           </div>
-          <div class="column-third-cart num-items-select-align">
-            <select class="num-items-select" name="number-items">
-              <option value="">1</option>
-              <option value="num1">2</option>
-              <option value="num2">3</option>
-            </select>
+          <div class="row">
+            <div class="column-full column-full-height">
+              <hr class="line-summary" />
+            </div>
+          </div>
+          <!-- although the row is flex, it should be the direct parent to have an effect on the p's under column-full -->
+          <div class="row">
+            <div class="column-full align-summary">
+              <p class="summary1">original price</p>
+              <p class="summary1-price">$50</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full align-summary">
+              <p class="summary1">Estimated Sales Tax</p>
+              <p class="summary2-price">$6</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full align-summary">
+              <p class="summary1">Delivery</p>
+              <p class="summary3-price">Free</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full column-full-height">
+              <hr class="line-summary-2" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full align-summary">
+              <p class="summary1">Total</p>
+              <p class="summary4-price">$56</p>
+            </div>
           </div>
         </div>
         <div class="row">
-          <div class="column-third-cart column-third-cart-align">
-            <img
-              class="mock-image"
-              src="images/generic gaminglaptop.webp"
-              alt="apple earbuds 4" />
-            <p class="p-col-third-1-cart">
-              Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
-            </p>
-          </div>
-          <div class="column-third-cart num-items-select-align">
-            <p class="p-col-third-2-cart">
-              Your perfect pack for everyday use and walks in the forest. Stash
-              your laptop (up to 15 inches) in the padded sleeve, your everyday
-            </p>
-          </div>
-          <div class="column-third-cart num-items-select-align">
-            <select class="num-items-select" name="number-items">
-              <option value="">1</option>
-              <option value="num1">2</option>
-              <option value="num2">3</option>
-            </select>
+          <div class="column-full align-checkout">
+            <button class="checkout-btn">Checkout</button>
           </div>
         </div>
       </div>
     </main>
-
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
   </body>
