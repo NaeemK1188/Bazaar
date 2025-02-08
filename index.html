@@ -42,6 +42,7 @@
     </header>
 
     <main class="container">
+      <!----------------------home page----------------------------------->
       <div data-view="home-page" class="hidden">
         <!-- row 1 -->
         <!-- align-contents-small-body is adding functionalities to row we can even remove row and
@@ -72,7 +73,7 @@
         we used id to be more specific -->
         <div class="row align-row" id="entry-list"></div>
       </div>
-
+      <!-------------------cart page--------------------------------------->
       <div data-view="cart-page" class="">
         <div class="row">
           <div class="column-full">
@@ -84,8 +85,9 @@
             <hr />
           </div>
         </div>
+        <!-- adding-order-cart overrides row class -->
         <div class="row">
-          <div class="column-third-cart column-third-cart-align">
+          <div class="column-third-cart column-third-cart-align" id="column1">
             <img
               class="mock-image"
               src="images/appleearpods4.webp"
@@ -94,13 +96,13 @@
               Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
             </p>
           </div>
-          <div class="column-third-cart">
+          <div class="column-third-cart num-items-select-align" id="column2">
             <p class="p-col-third-2-cart">
               Your perfect pack for everyday use and walks in the forest. Stash
               your laptop (up to 15 inches) in the padded sleeve, your everyday
             </p>
           </div>
-          <div class="column-third-cart num-items-select-align">
+          <div class="column-third-cart num-items-select-align" id="column3">
             <select class="num-items-select" name="number-items">
               <option value="">1</option>
               <option value="num1">2</option>
@@ -119,7 +121,7 @@
               Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
             </p>
           </div>
-          <div class="column-third-cart">
+          <div class="column-third-cart num-items-select-align">
             <p class="p-col-third-2-cart">
               Your perfect pack for everyday use and walks in the forest. Stash
               your laptop (up to 15 inches) in the padded sleeve, your everyday
@@ -143,7 +145,7 @@
               Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
             </p>
           </div>
-          <div class="column-third-cart">
+          <div class="column-third-cart num-items-select-align">
             <p class="p-col-third-2-cart">
               Your perfect pack for everyday use and walks in the forest. Stash
               your laptop (up to 15 inches) in the padded sleeve, your everyday

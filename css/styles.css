@@ -162,10 +162,11 @@ hr {
 /* applied to parent column */
 .column-third-cart-align {
   text-align: center;
+  height: 285px;
 }
 
 .p-col-third-1-cart {
-  padding: 29px;
+  padding: 40px;
   position: relative;
   bottom: 40px;
 }
@@ -174,6 +175,19 @@ hr {
   color: rgb(0, 42, 255);
   padding: 50px;
   line-height: 25px;
+}
+
+/* because the column 2 position is 0 */
+#column2 {
+  order: -1;
+}
+
+#column1 {
+  margin-top: -40px;
+}
+
+#column3 {
+  margin-bottom: 100px;
 }
 
 /*            cart page                                  */
@@ -284,5 +298,32 @@ hr {
 
   .column-third-cart {
     width: calc(100% / 3);
+  }
+
+  .header-h4:active {
+    color: black;
+  }
+
+  .p-col-third-1-cart {
+    padding: 50px;
+    width: 70%;
+    margin: auto;
+  }
+
+  #column2 {
+    order: 0;
+  }
+
+  #column1 {
+    margin-top: 0;
+  }
+
+  .column-third-cart-align {
+    text-align: center;
+    height: 375px;
+  }
+
+  #column3 {
+    margin-bottom: 0;
   }
 }

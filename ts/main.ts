@@ -64,7 +64,7 @@ async function fetchListings(): Promise<void> {
 
 // ---------------------------fetchListings() callback------------------------------
 
-// ---------------------------DOMContentLoaded() eventListener------------------------------
+// ---------------------------DOMContentLoaded eventListener------------------------------
 // we are calling the async callback function with event parameter which is not included here in()
 // the code starts from here or the reading on the initial view and when refresh
 document.addEventListener('DOMContentLoaded', async () => {
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 });
 
-// ---------------------------DOMContentLoaded() eventListener------------------------------
+// ---------------------------DOMContentLoaded eventListener------------------------------
 
 // ---------------------------creatingListing()---------------------------------------------
 
@@ -101,7 +101,7 @@ function creatingListing(listingData: ListingData): HTMLDivElement {
   // using innerHTML to put an actual html code in typescript file
   $addToCartBtn.innerHTML =
     'Add to Cart <i class="fa-solid fa-cart-shopping"></i>';
-  // $addToCartBtn.textContent = 'Add to Cart'; // using old way .textContent
+  // using old way .textContent
   $parentDiv.appendChild($addToCartBtn);
 
   return $parentDiv;
@@ -114,23 +114,15 @@ function creatingListing(listingData: ListingData): HTMLDivElement {
 $select.addEventListener('change', (event: Event) => {
   const eventTarget = event.target as HTMLSelectElement;
   console.log(eventTarget.value); // test hold the DOM object, so it has all its properties
-  // $body.classList.add('view-blur');
-  // event.target is the actual DOM element
 
-  // doing filtering by array.filter
-  // acting as event.target. so whenever i click on option, it will show what i clicked
-  // or use $select.value with .category.name in fakeplatzi api
   const result = listingData.filter(
     (listing) => listing.category === eventTarget.value,
   );
-  console.log(result); // holds my filtered listings
   $globalDiv.innerHTML = ''; // remove all the children
 
   for (let i = 0; i < result.length; i++) {
     $globalDiv.append(creatingListing(result[i]));
   }
-
-  // or if result.length
 
   // when we have listing remove the blur. it only works for one time
   // when it goes back to zero listing its blur again
@@ -146,7 +138,8 @@ $select.addEventListener('change', (event: Event) => {
 });
 
 // -------------------------select eventListener()----------------------------------------
-// works with change eventListener to add blur
+
+// ------------------works with change eventListener to add blur o Bg--------------------------
 // fired when we are inside the select because select is part of control elements inside form
 $select.addEventListener('focus', () => {
   $body.classList.add('view-blur');
@@ -158,7 +151,9 @@ $select.addEventListener('blur', () => {
   $body.classList.remove('view-blur');
 });
 
-// --------------------------h1 click eventListener()---------------------------------------
+// ------------------works with change eventListener to add blur o Bg--------------------------
+
+// --------------------------h1Bazaar click eventListener()---------------------------------------
 
 $h1Bazzar.addEventListener('click', async () => {
   $divCartPage.classList.add('hidden');
@@ -174,12 +169,15 @@ $h1Bazzar.addEventListener('click', async () => {
   $select.selectedIndex = 0;
   $h1Viewing.className = 'hidden';
   $h1NumberListing.className = 'hidden';
-  console.log('bazaar firing');
 });
 
-// -------------------------- h1 click eventListener()---------------------------------------
+// -------------------------- h1Bazaar click eventListener()---------------------------------------
+
+// -------------------------- h1 Cart click eventListener()---------------------------------------
 
 $cartHeader.addEventListener('click', () => {
   $divHomePage.classList.add('hidden');
   $divCartPage.classList.remove('hidden');
 });
+
+// -------------------------- h1 Cart click eventListener()---------------------------------------
